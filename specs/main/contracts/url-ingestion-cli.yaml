@@ -1,0 +1,31 @@
+# Conceptual CLI Interface for Single-File URL Ingestion Pipeline
+
+name: url_ingestion_cli
+description: Command-line interface for the single-file URL ingestion pipeline
+version: 1.0.0
+
+commands:
+  - name: ingest
+    description: Ingest content from URLs into the vector database
+    arguments:
+      - name: urls
+        type: list
+        required: true
+        description: List of URLs to ingest
+      - name: max_chunk_size
+        type: integer
+        default: 1000
+        description: Maximum size of each chunk
+      - name: overlap_size
+        type: integer
+        default: 200
+        description: Size of overlap between chunks
+      - name: dry_run
+        type: boolean
+        default: false
+        description: Show what would be processed without actually ingesting
+
+usage_examples:
+  - "python main.py ingest https://example.com"
+  - "python main.py ingest https://example1.com https://example2.com --max_chunk_size 500 --overlap_size 100"
+  - "python main.py ingest https://example.com --dry_run"

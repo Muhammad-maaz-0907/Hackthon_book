@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+### Compliance with Physical AI & Humanoid Robotics Book Constitution:
+- Content clarity: Ensure target audience is clearly defined for each feature
+- Consistency: Verify all new content follows standardized formatting and structure
+- Actionable examples: Confirm practical examples and code samples are included
+- Progressive learning: Validate that new content builds appropriately on existing concepts
+- Accessibility: Ensure all diagrams have alt text and code includes explanatory comments
+- Technical excellence: Verify all code examples are tested and site builds without errors
 
 ## Project Structure
 

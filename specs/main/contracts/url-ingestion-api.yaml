@@ -1,0 +1,76 @@
+openapi: 3.0.0
+info:
+  title: Website URL Ingestion API
+  description: API for ingesting content from website URLs into the vector database
+  version: 1.0.0
+paths:
+  /ingest-url:
+    post:
+      summary: Ingest content from a URL into the vector store
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/URLIngestionRequest'
+      responses:
+        '200':
+          description: URL ingestion completed successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/URLIngestionResponse'
+        '400':
+          description: Invalid request parameters
+        '500':
+          description: Internal server error during URL ingestion
+components:
+  schemas:
+    URLIngestionRequest:
+      type: object
+      required:
+        - url
+      properties:
+        url:
+          type: string
+          description: URL to ingest
+          example: "https://docs.ros.org/en/humble/"
+        max_chunk_size:
+          type: integer
+          description: Maximum size of each chunk
+          default: 1000
+          example: 1000
+        overlap_size:
+          type: integer
+          description: Size of overlap between chunks
+          default: 200
+          example: 200
+    URLIngestionResponse:
+      type: object
+      required:
+        - success
+        - url
+        - chunks_processed
+      properties:
+        success:
+          type: boolean
+          description: Whether the ingestion was successful
+          example: true
+        url:
+          type: string
+          description: URL that was ingested
+          example: "https://docs.ros.org/en/humble/"
+        chunks_processed:
+          type: integer
+          description: Number of chunks created and stored
+          example: 5
+        chunks:
+          type: array
+          items:
+            type: string
+          description: List of chunk IDs created
+          example: ["url_docs_ros_org_en_humble_0_0_1704123456", "url_docs_ros_org_en_humble_0_1_1704123456"]
+        error:
+          type: string
+          description: Error message if ingestion failed
+          example: null

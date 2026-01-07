@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "url-ingestion-pipeline"
+version = "0.1.0"
+description = "Single-file website URL ingestion and embedding pipeline"
+authors = ["User <user@example.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+cohere = "^5.5.3"
+beautifulsoup4 = "^4.12.3"
+qdrant-client = "^1.12.0"
+sentence-transformers = "^3.1.1"
+requests = "^2.32.5"
+python-dotenv = "^1.0.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

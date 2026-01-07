@@ -1,0 +1,12 @@
+# SafetyCheck.srv
+# Service for validating the safety of action plans
+
+# Request
+humanoid_robotics_book/msg/ActionPlan action_plan  # The action plan to validate
+
+---
+# Response
+bool is_safe                                    # Whether the action plan is safe to execute
+string[] safety_issues                          # List of safety issues found
+float32 risk_score                              # Overall risk score (0.0 to 1.0, where 0.0 is safe)
+string[] mitigation_suggestions                 # Suggestions for making the plan safer

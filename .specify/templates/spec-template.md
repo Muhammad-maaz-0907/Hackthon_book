@@ -105,6 +105,7 @@
 <!--
   ACTION REQUIRED: Define measurable success criteria.
   These must be technology-agnostic and measurable.
+  Include metrics that align with the Physical AI & Humanoid Robotics Book Constitution.
 -->
 
 ### Measurable Outcomes
@@ -113,3 +114,12 @@
 - **SC-002**: [Measurable metric, e.g., "System handles 1000 concurrent users without degradation"]
 - **SC-003**: [User satisfaction metric, e.g., "90% of users successfully complete primary task on first attempt"]
 - **SC-004**: [Business metric, e.g., "Reduce support tickets related to [X] by 50%"]
+
+### Constitution Alignment
+
+- **Clarity for Target Audience**: Content is tailored to specific reader levels with appropriate depth
+- **Consistency**: All new content follows standardized formatting and structure
+- **Actionable Content**: All concepts include practical examples and runnable code samples
+- **Progressive Learning**: New content builds logically on existing concepts
+- **Accessibility**: All diagrams have alt text and code includes explanatory comments
+- **Technical Excellence**: All code examples are tested and site builds without errors

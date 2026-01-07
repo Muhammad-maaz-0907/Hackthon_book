@@ -1,0 +1,365 @@
+# VLA System API Contract
+
+openapi: 3.0.0
+info:
+  title: Vision-Language-Action (VLA) System API
+  description: API for humanoid robotics VLA system components
+  version: 1.0.0
+
+paths:
+  /speech_commands:
+    post:
+      summary: Submit a speech command for processing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SpeechCommand'
+      responses:
+        '200':
+          description: Speech command accepted for processing
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/IntentResponse'
+
+  /intents:
+    post:
+      summary: Submit an intent for action planning
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Intent'
+      responses:
+        '200':
+          description: Action plan generated
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ActionPlanResponse'
+
+  /action_plans:
+    post:
+      summary: Submit an action plan for execution
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionPlan'
+      responses:
+        '200':
+          description: Action plan accepted for execution
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ExecutionResponse'
+
+  /safety_check:
+    post:
+      summary: Validate an action plan for safety
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ActionPlan'
+      responses:
+        '200':
+          description: Safety validation result
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/SafetyCheckResponse'
+
+components:
+  schemas:
+    SpeechCommand:
+      type: object
+      properties:
+        header:
+          type: object
+          properties:
+            stamp:
+              type: string
+              format: date-time
+            frame_id:
+              type: string
+        utterance:
+          type: string
+          description: The transcribed text from speech
+        confidence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Confidence score for the transcription
+        language:
+          type: string
+          description: Detected language code
+        timestamp:
+          type: string
+          format: date-time
+        alternatives:
+          type: array
+          items:
+            type: string
+          description: Alternative transcriptions if available
+
+    Intent:
+      type: object
+      properties:
+        header:
+          type: object
+          properties:
+            stamp:
+              type: string
+              format: date-time
+            frame_id:
+              type: string
+        command_type:
+          type: string
+          enum: [navigation, manipulation, interaction, social]
+          description: Type of command
+        entities:
+          type: array
+          items:
+            type: string
+          description: Identified entities (objects, locations, people)
+        entity_poses:
+          type: array
+          items:
+            $ref: '#/components/schemas/Pose'
+          description: 3D poses of entities if available
+        timestamp:
+          type: string
+          format: date-time
+        context_id:
+          type: string
+          description: Context identifier for conversation management
+        raw_command:
+          type: string
+          description: Original command text
+        confidence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Confidence in intent interpretation
+        parameters:
+          type: array
+          items:
+            type: string
+          description: Additional parameters for the command
+
+    ActionPlan:
+      type: object
+      properties:
+        header:
+          type: object
+          properties:
+            stamp:
+              type: string
+              format: date-time
+            frame_id:
+              type: string
+        timestamp:
+          type: string
+          format: date-time
+        plan_id:
+          type: string
+          description: Unique identifier for the plan
+        plan_type:
+          type: string
+          enum: [navigation, manipulation, interaction, composite]
+        actions:
+          type: array
+          items:
+            $ref: '#/components/schemas/VLAAction'
+        action_dependencies:
+          type: array
+          items:
+            type: integer
+          description: Dependencies between actions (action i depends on action j)
+        estimated_duration:
+          type: number
+          format: float
+          description: Estimated time to complete the plan (in seconds)
+        confidence:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Overall confidence in the plan
+        resources_required:
+          type: array
+          items:
+            type: string
+          description: Resources needed for execution (arm, gripper, etc.)
+        status:
+          type: string
+          enum: [planned, executing, completed, failed]
+          description: Current status
+        execution_constraints:
+          type: array
+          items:
+            type: number
+            format: float
+          description: Constraints for execution (speed, force, etc.)
+        safety_constraints:
+          type: array
+          items:
+            type: string
+          description: Safety constraints for the plan
+        temporal_constraints:
+          type: array
+          items:
+            type: string
+          description: Temporal constraints (before, after, etc.)
+        context_id:
+          type: string
+          description: Context identifier from language understanding
+        original_command:
+          type: string
+          description: Original command that generated this plan
+
+    VLAAction:
+      type: object
+      properties:
+        action_type:
+          type: string
+          enum: [navigate_to, grasp_object, follow_person, wave, pick_up, place, open_gripper, close_gripper, speak, listen, detect_object]
+        parameters:
+          type: array
+          items:
+            type: string
+          description: Action-specific parameters
+        target_pose:
+          $ref: '#/components/schemas/Pose'
+          description: Target pose for the action if applicable
+        priority:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Priority of the action
+        is_optional:
+          type: boolean
+          description: Whether the action is optional
+        timeout:
+          type: integer
+          description: Timeout for the action completion in seconds
+        preconditions:
+          type: array
+          items:
+            type: string
+          description: Conditions that must be true before executing
+        effects:
+          type: array
+          items:
+            type: string
+          description: Effects of the action on the world state
+
+    Pose:
+      type: object
+      properties:
+        position:
+          $ref: '#/components/schemas/Point'
+        orientation:
+          $ref: '#/components/schemas/Quaternion'
+
+    Point:
+      type: object
+      properties:
+        x:
+          type: number
+          format: float
+        y:
+          type: number
+          format: float
+        z:
+          type: number
+          format: float
+
+    Quaternion:
+      type: object
+      properties:
+        x:
+          type: number
+          format: float
+        y:
+          type: number
+          format: float
+        z:
+          type: number
+          format: float
+        w:
+          type: number
+          format: float
+
+    IntentResponse:
+      type: object
+      properties:
+        intent_id:
+          type: string
+          description: Unique identifier for the generated intent
+        status:
+          type: string
+          description: Processing status
+        message:
+          type: string
+          description: Status message
+
+    ActionPlanResponse:
+      type: object
+      properties:
+        plan_id:
+          type: string
+          description: Unique identifier for the generated action plan
+        status:
+          type: string
+          description: Processing status
+        estimated_duration:
+          type: number
+          format: float
+          description: Estimated time to complete the plan (in seconds)
+
+    ExecutionResponse:
+      type: object
+      properties:
+        execution_id:
+          type: string
+          description: Unique identifier for the execution
+        status:
+          type: string
+          enum: [accepted, rejected, queued, executing]
+          description: Execution status
+        message:
+          type: string
+          description: Status message
+
+    SafetyCheckResponse:
+      type: object
+      properties:
+        is_safe:
+          type: boolean
+          description: Whether the action plan is safe to execute
+        safety_issues:
+          type: array
+          items:
+            type: string
+          description: List of safety issues found
+        risk_score:
+          type: number
+          format: float
+          minimum: 0.0
+          maximum: 1.0
+          description: Overall risk score (0.0 to 1.0, where 0.0 is safe)
+        mitigation_suggestions:
+          type: array
+          items:
+            type: string
+          description: Suggestions for making the plan safer

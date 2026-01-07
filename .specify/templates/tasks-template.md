@@ -156,6 +156,12 @@ Examples of foundational tasks (adjust based on your project):
 - [ ] TXXX [P] Additional unit tests (if requested) in tests/unit/
 - [ ] TXXX Security hardening
 - [ ] TXXX Run quickstart.md validation
+- [ ] TXXX Verify constitution compliance: Clarity for target audience
+- [ ] TXXX Verify constitution compliance: Consistency in presentation
+- [ ] TXXX Verify constitution compliance: Actionable content with examples
+- [ ] TXXX Verify constitution compliance: Progressive learning structure
+- [ ] TXXX Verify constitution compliance: Accessibility requirements
+- [ ] TXXX Verify constitution compliance: Technical excellence standards
 
 ---
 

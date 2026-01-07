@@ -1,55 +1,42 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+SYNC IMPACT REPORT:
+- Version change: 1.0.0 → 1.0.0 (initial creation)
+- Modified principles: None (new constitution)
+- Added sections: All core principles and governance
+- Removed sections: None
+- Templates requiring updates: ✅ Updated
+- Follow-up TODOs: None
+-->
+
+# Physical AI & Humanoid Robotics Book Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Clarity for Target Audience
+Content must be tailored to specific reader levels (beginner/intermediate/advanced); All concepts explained with appropriate depth for the target audience; Clear identification of assumed knowledge and prerequisites for each chapter.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Consistency in Presentation
+Maintain uniform voice, tone, and formatting across all chapters; Standardized chapter structure with consistent navigation elements; Consistent terminology and notation throughout the book; Uniform code example formatting and commenting style.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Actionable Content with Practical Examples
+Every concept must include practical examples and runnable code samples; Theory connected to real-world applications in humanoid robotics; Hands-on exercises that reinforce learning objectives; Code examples must be tested and verified to work correctly.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Progressive Learning Structure
+Chapters and concepts must build upon each other in a logical sequence; Prerequisites clearly established before introducing new concepts; Spiral learning approach where complex topics are revisited with increasing depth; Learning pathways that accommodate different skill levels.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Accessibility Through Clear Communication
+Complex topics explained through clear explanations and visual aids; Alternative text provided for all diagrams and images; Code examples include detailed comments explaining functionality; Multiple learning modalities accommodated (text, visual, practical).
 
-### [PRINCIPLE_6_NAME]
+### VI. Technical Excellence
+Platform: Docusaurus 3.x with GitHub Pages deployment; All code examples tested and validated before inclusion; Zero broken links or missing images in published content; Site builds without errors or warnings; Automated CI/CD pipeline maintained for consistent deployments.
 
+## Content Standards
+Minimum chapter length: 1,500 words; Maximum chapter length: 4,000 words for readability; Balanced code-to-text ratio with explanations; External links must be current and from reputable sources; Quarterly reviews for content accuracy and currency.
 
-[PRINCIPLE__DESCRIPTION]
-
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
-
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
-
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
-
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+Chapter structure: Introduction → Core concepts → Examples → Summary → Exercises; All code must be tested and include comprehensive comments; Writing style uses active voice with conversational yet professional tone; Readability maintained with Flesch Reading Ease score 60+; Navigation provides clear chapter hierarchy and cross-references.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
+This constitution governs all content creation and technical decisions for the Physical AI & Humanoid Robotics book project; All contributions must comply with these principles; Amendments require documentation of changes and team approval; Regular compliance reviews ensure adherence to standards; Version control follows Git with meaningful commit messages.
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
-
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-12-20 | **Last Amended**: 2025-12-20

@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm start)",
+      "Bash(npx docusaurus start --port 3002)",
+      "Bash(timeout 10s npx docusaurus start --port 3003)",
+      "Bash(timeout 5s type \"C:\\\\Users\\\\HUNIZA~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\F--humanoid-robotics-book\\\\tasks\\\\be4557d.output\")",
+      "Bash(timeout 5s npx docusaurus start --port 3003)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\specs\" /s)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\specs\\\\master\")",
+      "Skill(sp.tasks)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\specs\\\\5-vla-conversational-robotics\")",
+      "Skill(sp.implement)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/check-prerequisites.ps1\" -Json -RequireTasks -IncludeTasks)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\specs\\\\master\\\\checklists\")",
+      "Bash(echo \"# Vision-Language-Action \\(VLA\\) Systems for Humanoid Robotics\n\n## Overview\n\nThis module covers Vision-Language-Action \\(VLA\\) systems for humanoid robotics, teaching how robots convert human language to intent to cognitive plans to perception-grounded actions with feedback. The module covers speech processing with Whisper, natural language processing with LLMs, vision-language model integration, action planning and execution frameworks, multimodal fusion architecture, ROS 2 integration, Isaac ROS perception packages, Nav2 navigation integration, safety validation systems, and human-robot interaction protocols.\n\n## Learning Objectives\n\nBy the end of this module, students will be able to:\n- Understand the complete VLA pipeline from voice to action execution\n- Implement speech-to-text processing with Whisper for robotic applications\n- Integrate natural language processing with LLMs for intent interpretation\n- Design vision-language models for perception-grounded actions\n- Plan and execute multi-step robotic actions based on language commands\n- Implement safety validation for human-robot interaction\n- Create multimodal feedback systems for natural human-robot interaction\n\n## Module Structure\n\n1. [Speech Processing]\\(./speech-processing.md\\) - Converting voice commands to text\n2. [Language Understanding]\\(./language-understanding.md\\) - Interpreting human intent\n3. [Perception Integration]\\(./perception-integration.md\\) - Grounding language in vision\n4. [Intent Interpreter]\\(./intent-interpreter.md\\) - Converting language to action plans\n5. [Safety Validation]\\(./safety-validation.md\\) - Ensuring safe execution\n6. [Navigation Execution]\\(./navigation-execution.md\\) - Movement commands\n7. [Manipulation Execution]\\(./manipulation-execution.md\\) - Object interaction\n8. [Social Interaction]\\(./social-interaction.md\\) - Human-aware behaviors\n9. [Feedback System]\\(./feedback-system.md\\) - Multimodal communication\n10. [Context Management]\\(./context-management.md\\) - Conversation tracking\n11. [Testing Framework]\\(./testing-framework.md\\) - Validation and verification\n12. [Capstone Application]\\(./capstone-application.md\\) - Complete system integration\n13. [Troubleshooting Guide]\\(./troubleshooting.md\\) - Common issues and solutions\n\n## Prerequisites\n\nStudents should have:\n- Basic understanding of ROS 2 concepts\n- Familiarity with Python programming\n- Knowledge of fundamental robotics concepts\n- Understanding of basic AI/ML concepts\n\n## Technical Stack\n\n- **Language**: Python 3.11\n- **Framework**: ROS 2 Humble Hawksbill\n- **Speech Processing**: OpenAI Whisper\n- **Perception**: Isaac ROS\n- **Navigation**: Nav2\n- **Computer Vision**: OpenCV, NumPy\n- **ML Frameworks**: PyTorch or TensorFlow\n\n## Performance Goals\n\n- Speech processing latency: <200ms\n- Intent interpretation: <500ms\n- Action planning: <1000ms\n\n## VLA System Architecture\n\nThe Vision-Language-Action system follows a modular architecture where each component handles a specific aspect of the human-robot interaction pipeline:\n\n\\\\`\\\\`\\\\`\nVoice Command → Speech Processing → Language Understanding → Perception Integration → Intent Interpretation → Safety Validation → Action Execution → Feedback Generation\n\\\\`\\\\`\\\\`\n\nEach component is designed to work independently while contributing to the overall system functionality.\")",
+      "Bash(python test_chunker.py)",
+      "Bash(pip install -r requirements.txt)",
+      "Bash(python test_main_functionality.py)",
+      "Bash(ls -la backend/*.py)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\backend\" /s)",
+      "Bash(python -c \"from backend.main import app; print\\(''Main app imports successfully''\\)\")",
+      "Bash(pip install cohere)",
+      "Bash(pip install fastapi uvicorn qdrant-client asyncpg python-dotenv openai tiktoken sentence-transformers PyYAML python-multipart beautifulsoup4 markdown)",
+      "Bash(pip install fastapi)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\backend\")",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, ''./backend''\\); from backend.main import app; print\\(''Main app imports successfully''\\)\")",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, ''./backend''\\); from backend.web_scraper import WebScraper; scraper = WebScraper\\(\\); print\\(''WebScraper module loaded successfully''\\)\")",
+      "Bash(python -c \"import sys; sys.path.insert\\(0, ''./backend''\\); from backend.cohere_client import CohereClient; print\\(''CohereClient module loaded successfully''\\)\")",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/setup-plan.ps1\" -Json)",
+      "Bash(powershell -ExecutionPolicy Bypass -File \".specify/scripts/powershell/update-agent-context.ps1\" -AgentType claude)",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\specs\\\\main\")",
+      "Bash(dir \"F:\\\\humanoid-robotics-book\\\\specs\\\\main\\\\contracts\")",
+      "Bash(pip install cohere beautifulsoup4 qdrant-client sentence-transformers requests python-dotenv)",
+      "Bash(python single_file_ingestion.py --help)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "context7",
+    "github"
+  ]
+}
