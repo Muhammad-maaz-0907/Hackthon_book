@@ -18,7 +18,7 @@ const config: Config = {
   url: 'https://Muhammad-maaz-0907.github.io', 
   
   // 2. Set the base URL to your repository name
-  baseUrl: '/Hackthon_book/', 
+ baseUrl: '/',
 
   // 3. Update GitHub Pages deployment config
   organizationName: 'Muhammad-maaz-0907', 
