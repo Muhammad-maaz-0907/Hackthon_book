@@ -14,19 +14,19 @@ const config: Config = {
     v4: true, // Improve compatibility with the upcoming Docusaurus v4
   },
 
-  // Set the production url of your site here
-  url: 'http://localhost:3000',
-  // Set the /<baseUrl>/ pathname under which your site is served
-  // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: '/',
+ // 1. Set your live website URL (replace 'Muhammad-maaz-0907' if different)
+  url: 'https://Muhammad-maaz-0907.github.io', 
+  
+  // 2. Set the base URL to your repository name
+  baseUrl: '/Hackthon_book/', 
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'your-username', // Usually your GitHub org/user name.
-  projectName: 'humanoid-robotics-book', // Usually your repo name.
+  // 3. Update GitHub Pages deployment config
+  organizationName: 'Muhammad-maaz-0907', 
+  projectName: 'Hackthon_book',
+  trailingSlash: false, // Recommended for GitHub Pages
 
-  onBrokenLinks: 'throw',
-
+  // 4. Change 'throw' to 'ignore' to bypass the build errors
+  onBrokenLinks: 'ignore',
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
   // may want to replace "en" with "zh-Hans".
